@@ -22,8 +22,12 @@ class Database extends PDO
     {
         foreach($params as $key => $value)
         {
-            $statement->bindParam($key, $value);
+            $this->binder($statement, $key, $value);
         }
+    }
+    private function binder($statement, $key, $value)
+    {
+        $statement->bindParam($key, $value);
     }
 
     public function query($rawQuery, $params = array())

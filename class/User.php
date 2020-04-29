@@ -41,7 +41,20 @@ class User
     }
     public function setCreated($time)
     {
-        $this->created_at = $time;
+        $this->created_at = $time; }
+
+    private function setUser($result)
+    {
+        if(isset($result[0])){
+            $row = $result[0];   
+
+            $this->setId($row['id']);
+            $this->setLogin($row['login']);
+            $this->setPassword($row['password']);
+            $this->setCreated(new DateTime($row['created_at']));
+        } else {
+            throw new Exception('Invalid params :/ check your index.php');
+        }
     }
 
     // Load user
@@ -53,19 +66,44 @@ class User
             ':ID' => $id
         ));
 
-        if(isset($results[0])){
-            $row = $results[0];
-
-            $this->setId($row['id']);
-            $this->setLogin($row['login']);
-            $this->setPassword($row['password']);
-            $this->setCreated(new DateTime($row['created_at']));
-        }
+        $this->setUser($results);
     }
+
+    // Get all users
+    public static function getAll()
+    {
+        $sql = new Database();
+
+        return $sql->select('select * from users');
+    }
+
+    // Search user by login
+    public static function search($login)
+    {
+        $sql = new Database();
+
+        return $sql->select('select * from users where login like :SEARCH order by login', array(
+            ':SEARCH' => "%{$login}%"
+        ));
+    }
+
+    // Select by login and pass
+    public function getAuth($login, $pass)
+    {
+        $sql = new Database();
+
+        $result = $sql->select("select * from users where login = :LOG and password = :PASS", array(
+            ':LOG' => $login,
+            ':PASS' => $pass
+        ));
     
-    // Magic To String
+        $this->setUser($result);
+    }
+
+    //  Magic To String
     public function __toString()
     {
+        
         return json_encode(array(
             'id' => $this->getId(),
             'login' => $this->getLogin(),
