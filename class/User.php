@@ -100,6 +100,24 @@ class User
         $this->setUser($result);
     }
 
+    // Create new user
+    public function insert()
+    {
+        $sql = new Database();
+
+        $result = $sql->query('insert into users(login, password) values(:LOGIN, :PASSWORD)', array(
+            ':LOGIN' => $this->getLogin(),
+            ':PASSWORD' => $this->getPassword()
+        ));
+    }
+
+    // Construct
+    public function __construct($login = '', $password = '')
+    {
+        $this->setLogin($login);
+        $this->setPassword($password);
+    }
+
     //  Magic To String
     public function __toString()
     {

@@ -21,9 +21,16 @@ $search = User::search('ro');
 echo json_encode($search);
  */
 
-// Get by login and password
+/* Get by login and password
 $rob = new User;
 $rob->getAuth('rob', 'fast&furious');
 
 echo $rob;
+ */
+
+// Insert
+$john= new User('john_wick', 'you-kill-ma-dog!!!');
+$john->insert();
+
+echo json_encode(User::getAll()); // Check
 
