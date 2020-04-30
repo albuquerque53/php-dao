@@ -105,9 +105,23 @@ class User
     {
         $sql = new Database();
 
-        $result = $sql->query('insert into users(login, password) values(:LOGIN, :PASSWORD)', array(
+        $sql->query('insert into users(login, password) values(:LOGIN, :PASSWORD)', array(
             ':LOGIN' => $this->getLogin(),
             ':PASSWORD' => $this->getPassword()
+        ));
+    }
+
+    public function update($login, $password)
+    {
+        $sql = new Database();
+
+        $this->setLogin($login);
+        $this->setPassword($password);
+
+        $sql->query('update users set login = :LOGIN, password = :PASSWORD where id = :ID', array(
+            ':LOGIN' => $this->getLogin(),
+            ':PASSWORD' => $this->getPassword(),
+            ':ID' => $this->getId()
         ));
     }
 

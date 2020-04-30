@@ -28,9 +28,16 @@ $rob->getAuth('rob', 'fast&furious');
 echo $rob;
  */
 
-// Insert
+/* Insert
 $john= new User('john_wick', 'you-kill-ma-dog!!!');
 $john->insert();
 
 echo json_encode(User::getAll()); // Check
+ */
 
+// Update
+$rob = new User();
+$rob->loadById(3);
+$rob->update('rob', 'toretto123');
+
+echo $rob;
