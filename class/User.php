@@ -125,6 +125,21 @@ class User
         ));
     }
 
+    public function delete()
+    {
+        $sql = new Database();
+
+        $sql->query('delete from users where id = :ID', array(
+            ':ID' => $this->getId()
+        ));
+
+        // Reset
+        $this->setId('');
+        $this->setLogin('');
+        $this->setPassword('');
+        $this->setCreated(new DateTime());
+    }
+
     // Construct
     public function __construct($login = '', $password = '')
     {
