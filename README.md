@@ -1,14 +1,14 @@
 ![](https://www.tech-recipes.com/wp-content/uploads/2018/10/php-639x350.png)
 
-# PHP 7 User Management System
+# :bust_in_silhouette: PHP 7 User Management System
 
 Simple backend system developed with PHP and MySQL using Data Access Object Pattern
 
-## Data Access Object
+## :large_blue_circle: Data Access Object
 
 DAO is a pattern that provides a in-layers application, with a layer wich aims to connect to database and other layer with a abstract interface that communicates with database layer to persist data.
 
-## How to use this backend?
+## :red_circle: How to use this backend?
 
 1. First, configure your database (MySQL)
 ```
