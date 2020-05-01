@@ -111,6 +111,7 @@ class User
     }
 
     public function update($login, $password)
+    {
         $sql = new Database();
 
         $this->setLogin($login);

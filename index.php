@@ -49,9 +49,11 @@ $rob->update('rob', 'toretto123');
 echo $rob;
 */
 
+/*
 // Delete
 $g4br = new User();
 $g4br->loadById(2);
 $g4br->delete();
 
 echo json_encode(User::getAll()); // Check
+*/
