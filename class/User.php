@@ -57,8 +57,11 @@ class User
         }
     }
 
-    // Load user
-    public function loadById($id)
+    /*
+     *  Database methods
+     */
+
+    public function loadById(int $id)
     {
         $sql = new Database();
 
@@ -69,7 +72,6 @@ class User
         $this->setUser($results);
     }
 
-    // Get all users
     public static function getAll()
     {
         $sql = new Database();
@@ -77,7 +79,6 @@ class User
         return $sql->select('select * from users');
     }
 
-    // Search user by login
     public static function search($login)
     {
         $sql = new Database();
@@ -87,7 +88,6 @@ class User
         ));
     }
 
-    // Select by login and pass
     public function getAuth($login, $pass)
     {
         $sql = new Database();
@@ -100,7 +100,6 @@ class User
         $this->setUser($result);
     }
 
-    // Create new user
     public function insert()
     {
         $sql = new Database();
@@ -112,7 +111,6 @@ class User
     }
 
     public function update($login, $password)
-    {
         $sql = new Database();
 
         $this->setLogin($login);
@@ -149,8 +147,7 @@ class User
 
     //  Magic To String
     public function __toString()
-    {
-        
+    { 
         return json_encode(array(
             'id' => $this->getId(),
             'login' => $this->getLogin(),
