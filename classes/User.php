@@ -1,5 +1,9 @@
 <?php
 
+namespace Access;
+
+use \DateTime;
+
 class User
 {
     private $id;

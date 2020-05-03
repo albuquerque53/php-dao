@@ -1,5 +1,8 @@
 <?php
 
+namespace Access;
+
+use \PDO;
 
 class Database extends PDO 
 {

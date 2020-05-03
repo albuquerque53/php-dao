@@ -1,10 +1,13 @@
 <?php
 
-require_once('config.php');
+use Access\User;
+
+require_once 'vendor/autoload.php';
 
 /*
 // Load user by ID
-$root = new User;
+$root = new User();
+
 $root->loadById(1);
 
 echo $root;
@@ -15,7 +18,7 @@ echo $root;
 $list = User::getAll();
 
 echo json_encode($list);
-*/
+ */
 
 /*
 // Search user by login
