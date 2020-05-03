@@ -1,4 +1,13 @@
 {
+    "name": "g4br-4d3v/php-dao",
+    "description": "PHP 7 backend with Data Access Object pattern",
+    "authors": [
+        {
+            "name": "Gabriel Albuquerque",
+            "email": "gabrielalbuquerque-ads@hotmail.com",
+            "role": "Developer"
+        }    
+    ],
     "autoload": {
         "psr-4": {
             "Access\\": "classes/"
