@@ -22,6 +22,8 @@ CREATE TABLE users(
 );
 INSERT INTO users(login, passoword) VALUES('root', 'secret-pass');  # Optional
 ```
-2. In the [Database](https://github.com/g4br-4d3v/php-dao/blob/master/class/Database.php) class set **your** localhost configs
+2. In project folder, run: ```composer install```
 
-3. In the [index.php](https://github.com/g4br-4d3v/php-dao/blob/master/index.php) the **DB operations** are /* commented */
+3. In the [Database](https://github.com/g4br-4d3v/php-dao/blob/master/classes/Database.php) class set **your** localhost configs
+
+4. In the [index.php](https://github.com/g4br-4d3v/php-dao/blob/master/classes/User.php) the **DB operations** are /* commented */
