@@ -90,19 +90,7 @@ class User
         return $sql->select('select * from users where login like :SEARCH order by login', array(
             ':SEARCH' => "%{$login}%"
         ));
-    }
-
-    public function getAuth($login, $pass)
-    {
-        $sql = new Database();
-
-        $result = $sql->select("select * from users where login = :LOG and password = :PASS", array(
-            ':LOG' => $login,
-            ':PASS' => $pass
-        ));
-    
-        $this->setUser($result);
-    }
+    } 
 
     public function insert()
     {
