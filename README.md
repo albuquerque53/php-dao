@@ -20,7 +20,7 @@ CREATE TABLE users(
   password VARCHAR(256) NOT NULL,
   created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP()
 );
-INSERT INTO users(login, passoword) VALUES('root', 'secret-pass');  # Optional
+INSERT INTO users(login, password) VALUES('root', 'secret-pass');  # Optional
 ```
 2. In project folder, run: ```composer install```
 
