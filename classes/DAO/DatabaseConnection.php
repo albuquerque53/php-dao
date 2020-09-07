@@ -2,7 +2,9 @@
 
 namespace Access\DAO;
 
-abstract class DatabaseConnection extends \PDO
+use PDO;
+
+abstract class DatabaseConnection extends PDO
 {
     protected $pdo;
 
@@ -11,7 +13,10 @@ abstract class DatabaseConnection extends \PDO
         $dsn = "{$db}:host={$host};dbname={$dbname}";
 
         try {
-            $this->pdo = new \PDO($dsn, $user, $password);
+            $this->pdo = new PDO($dsn, $user, $password);
+
+            $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $this->pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
         } catch (\PDOException $connectionError) {
             echo json_encode([
                 'error' => true,
