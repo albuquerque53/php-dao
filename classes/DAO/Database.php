@@ -1,6 +1,6 @@
 <?php
 
-namespace Access;
+namespace Access\DAO;
 
 use \PDO;
 

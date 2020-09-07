@@ -2,6 +2,7 @@
 
 namespace Access;
 
+use Access\DAO\Database;
 use \DateTime;
 
 class User
