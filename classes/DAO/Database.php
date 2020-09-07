@@ -2,23 +2,21 @@
 
 namespace Access\DAO;
 
-use \PDO;
-
-class Database extends PDO 
+class Database extends \Access\DAO\DatabaseConnection 
 {
-    private $connection;
-
     public function __construct()
     {
-        $database = 'mysql';
-        $host = 'mysql';
-        $dbname = 'daodb';
-        $user = 'root';
-        $password = 'root';
-
-        //echo "$user pass $password}";
-
-        $this->connection = new PDO("{$database}:host={$host};dbname={$dbname}", $user, $password);
+        parent::__construct(
+            // DATABASE
+            'mysql',
+            // HOST
+            '127.0.0.1',
+            // SCHEMA NAME
+            'daodb',
+            // DB USER
+            'root',
+            // DB PASSWORD
+            'root');
     }
 
     private function setParams($statement, $params = array())
@@ -35,7 +33,7 @@ class Database extends PDO
 
     public function query($rawQuery, $params = array())
     {
-        $statement = $this->connection->prepare($rawQuery);
+        $statement = $this->pdo->prepare($rawQuery);
         $this->setParams($statement, $params);
 
         $statement->execute();
@@ -47,10 +45,9 @@ class Database extends PDO
     {
         $statement = $this->query($rawQuery, $params);
 
-        $results = $statement->fetchAll(PDO::FETCH_ASSOC);
+        $results = $statement->fetchAll(\PDO::FETCH_ASSOC);
 
         return $results;
     }
-
 }
 
