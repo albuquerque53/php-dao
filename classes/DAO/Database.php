@@ -2,7 +2,10 @@
 
 namespace Access\DAO;
 
-class Database extends \Access\DAO\DatabaseConnection 
+use Access\DAO\Support\Parameters;
+use Access\DAO\DatabaseConnection;
+
+class Database extends DatabaseConnection 
 {
     public function __construct()
     {
@@ -19,22 +22,10 @@ class Database extends \Access\DAO\DatabaseConnection
             'root');
     }
 
-    private function setParams($statement, $params = array())
-    {
-        foreach($params as $key => $value)
-        {
-            $this->binder($statement, $key, $value);
-        }
-    }
-    private function binder($statement, $key, $value)
-    {
-        $statement->bindParam($key, $value);
-    }
-
     public function query($rawQuery, $params = array())
     {
         $statement = $this->pdo->prepare($rawQuery);
-        $this->setParams($statement, $params);
+        Parameters::set($statement, $params);
 
         $statement->execute();
         
