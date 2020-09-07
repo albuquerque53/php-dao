@@ -1,54 +1,51 @@
 <?php
 
-use Access\User;
+use Access\Controller\UserController;
 
 require_once 'vendor/autoload.php';
 
+// Controller Instance
+$user = new UserController();
+
 /*
-// Load user by ID
-$root = new User();
+// All users
+$list = $user->index();
 
-$root->loadById(1);
-
-echo $root;
+echo json_encode($list);
 */
 
 /*
-// Get all users
-$list = User::getAll();
-
-echo json_encode($list);
- */
+// Get by ID
+$userOne = $user->show(1);
+  
+echo json_encode($userOne);
+*/
 
 /*
 // Search user by login
-$search = User::search('ro');
+$search = $user->search('ro');
 
 echo json_encode($search);
  */
 
 /*
 // Insert new user
-$john= new User('john_wick', 'you-kill-ma-dog!!!');
-$john->insert();
+$user->store('John Wick', 'you-killed-ma-dog!!!');
 
-echo json_encode(User::getAll()); // Check
+echo json_encode($user->index()); // Check
  */
 
 /*
 // Update user
-$rob = new User();
-$rob->loadById(3);
-$rob->update('rob', 'toretto123');
+$user->update(2, 'John Wick', 'you-killed-ma-dog!!!');
 
-echo $rob;
+echo json_encode($user->index());
 */
 
 /*
 // Delete
-$g4br = new User();
-$g4br->loadById(2);
-$g4br->delete();
+$user->destroy(7);
 
-echo json_encode(User::getAll()); // Check
+echo json_encode($user->index()); // Check
 */
+
