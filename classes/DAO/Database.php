@@ -22,7 +22,7 @@ class Database extends DatabaseConnection
             'root');
     }
 
-    public function query($rawQuery, $params = array())
+    public function query($rawQuery, $params = array()): \PDOStatement
     {
         $statement = $this->pdo->prepare($rawQuery);
         Parameters::set($statement, $params);
