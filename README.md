@@ -24,6 +24,6 @@ INSERT INTO users(login, password) VALUES('root', 'secret-pass');  # Optional
 ```
 2. In project folder, run: ```composer dump-autoload -o```
 
-3. In the [Database](https://github.com/g4br-4d3v/php-dao/blob/master/classes/Database.php) class set **your** localhost configs
+3. In the [Database](https://github.com/albuquerque53/php-dao/blob/master/classes/DAO/DatabaseConnection.php) class set **your** localhost configs
 
 4. In the [index.php](https://github.com/g4br-4d3v/php-dao/blob/master/classes/User.php) the **DB operations** are /* commented */
