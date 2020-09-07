@@ -13,7 +13,7 @@ DAO is a pattern that provides a in-layers application, with a layer wich aims t
 1. First, configure your database (MySQL)
 ```
 CREATE DATABASE daodb;
-USE php7dao;
+USE daodb;
 CREATE TABLE users(
   id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   login VARCHAR(64) NOT NULL,
@@ -22,7 +22,7 @@ CREATE TABLE users(
 );
 INSERT INTO users(login, password) VALUES('root', 'secret-pass');  # Optional
 ```
-2. In project folder, run: ```composer install```
+2. In project folder, run: ```composer dump-autoload -o```
 
 3. In the [Database](https://github.com/g4br-4d3v/php-dao/blob/master/classes/Database.php) class set **your** localhost configs
 
