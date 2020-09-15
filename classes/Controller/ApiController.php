@@ -40,9 +40,17 @@ class ApiController
         // Show by Login
     }
 
-    public function store(string $login, string $password)
+    public function store(Request $request, Response $response)
     {
-        // New User
+        $body = $request->getParsedBody();
+
+        $this
+            ->userController->store(
+                $body['login'],
+                $body['password']
+            );
+
+        return $response;
     }
 
     public function update(int $id, string $login, string $password)
