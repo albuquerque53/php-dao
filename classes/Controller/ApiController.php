@@ -2,6 +2,8 @@
 
 namespace Access\Controller;
 
+use Psr\Http\Message\ResponseInterface as Response;
+use Psr\Http\Message\ServerRequestInterface as Request;
 use Access\Controller\UserController;
 
 class ApiController
@@ -21,9 +23,16 @@ class ApiController
         echo json_encode($users);
     }
 
-    public function show(int $id)
+    public function show(Request $request, Response $response, array $args)
     {
-        // Show by ID
+        $id = $args['id'];
+
+        $user = $this
+            ->userController->show($id);
+
+        echo json_encode($user);
+
+        return $response;
     }
 
     public function search(string $login)

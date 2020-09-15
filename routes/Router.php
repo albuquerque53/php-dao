@@ -4,8 +4,6 @@ namespace Routes;
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
-use Psr\Http\Message\ResponseInterface as Response;
-use Psr\Http\Message\ServerRequestInterface as Request;
 use Slim\Factory\AppFactory;
 use Access\Controller\ApiController;
 
@@ -16,6 +14,7 @@ class Router
         $app = AppFactory::create();
 
         $app->get('/', ApiController::class . ':index');
+        $app->get('/user/{id}', ApiController::class . ':show');
 
         $app->run();
     }
