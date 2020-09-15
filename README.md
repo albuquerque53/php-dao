@@ -26,4 +26,13 @@ INSERT INTO users(login, password) VALUES('root', 'secret-pass');  # Optional
 
 3. In the [Database](https://github.com/albuquerque53/php-dao/blob/master/classes/DAO/DatabaseConnection.php) class set **your** localhost configs
 
-4. In the [index.php](https://github.com/g4br-4d3v/php-dao/blob/master/classes/User.php) the **DB operations** are /* commented */
+**API Table**
+
+| Method    | URI         | Name    | Action                                      | Body    |
+|-----------|------------ |---------|---------------------------------------------|---------|
+| GET       | /           | index   | Access\Controller\ApiController@index       |  none   |
+| GET       | user/{id}   | show    | Access\Controller\ApiController@show        |  none   |
+| GET       | search/     | search  | Access\Controller\ApiController@search      |  json   |
+| POST      | new/        | new     | Access\Controller\ApiController@store       |  json   |
+| PUT       | update/{id} | update  | Access\Controller\ApiController@update      |  json   |
+| DELETE    | remove/{id} | remove  | Access\Controller\ApiController@destroy     |  none   |
