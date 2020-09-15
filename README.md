@@ -24,9 +24,11 @@ INSERT INTO users(login, password) VALUES('root', 'secret-pass');  # Optional
 ```
 2. In project folder, run: ```composer dump-autoload -o```
 
+3. Install the dependencies: ```composer install```
+
 3. In the [Database](https://github.com/albuquerque53/php-dao/blob/master/classes/DAO/DatabaseConnection.php) class set **your** localhost configs
 
-**API Table**
+## The API Table
 
 | Method    | URI         | Name    | Action                                      | Body    |
 |-----------|------------ |---------|---------------------------------------------|---------|
