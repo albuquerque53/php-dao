@@ -17,6 +17,7 @@ class Router
         $app->get('/user/{id}', ApiController::class . ':show');
         $app->post('/new', ApiController::class . ':store');
         $app->put('/update/{id}', ApiController::class . ':update');
+        $app->delete('/remove/{id}', ApiController::class . ':destroy');
 
         $app->run();
     }
