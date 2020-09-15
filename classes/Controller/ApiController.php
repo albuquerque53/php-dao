@@ -53,9 +53,19 @@ class ApiController
         return $response;
     }
 
-    public function update(int $id, string $login, string $password)
+    public function update(Request $request, Response $response, array $args)
     {
-        // Update User
+        $id = $args['id'];
+        $body = $request->getParsedBody();
+
+        $this
+            ->userController->update(
+                $id,
+                $body['login'],
+                $body['password']
+            );
+
+        return $response;
     }
 
     public function destroy(int $id)
