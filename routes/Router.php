@@ -9,7 +9,7 @@ use Access\Controller\ApiController;
 
 class Router
 {
-    public static function run()
+    public static function createApp()
     {
         $app = AppFactory::create();
 
@@ -20,6 +20,6 @@ class Router
         $app->put('/update/{id}', ApiController::class . ':update');
         $app->delete('/remove/{id}', ApiController::class . ':destroy');
 
-        $app->run();
+        return $app;
     }
 }
