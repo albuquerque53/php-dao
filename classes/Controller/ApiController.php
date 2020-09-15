@@ -35,9 +35,18 @@ class ApiController
         return $response;
     }
 
-    public function search(string $login)
+    public function search(Request $request, Response $response)
     {
-        // Show by Login
+        $body = $request->getParsedBody();
+
+        $users = $this
+            ->userController->search(
+                $body['login']
+            );
+
+        echo json_encode($users);
+
+        return $response;
     }
 
     public function store(Request $request, Response $response)
