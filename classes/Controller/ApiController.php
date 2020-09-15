@@ -15,12 +15,14 @@ class ApiController
         $this->userController = new UserController;
     }
 
-    public function index()
+    public function index(Request $request, Response $response)
     {
         $users = $this
             ->userController->index(); 
     
         echo json_encode($users);
+
+        return $reponse;
     }
 
     public function show(Request $request, Response $response, array $args)
