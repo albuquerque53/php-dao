@@ -68,9 +68,14 @@ class ApiController
         return $response;
     }
 
-    public function destroy(int $id)
+    public function destroy(Request $request, Response $response, array $args)
     {
-        // Delete User
+        $id = $args['id'];
+
+        $this
+            ->userController->destroy($id);
+
+        return $response;
     }
 }
 
