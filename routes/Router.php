@@ -15,6 +15,7 @@ class Router
 
         $app->get('/', ApiController::class . ':index');
         $app->get('/user/{id}', ApiController::class . ':show');
+        $app->post('/new', ApiController::class . ':store');
 
         $app->run();
     }
