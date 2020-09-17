@@ -1,6 +1,6 @@
 <?php
 
-namespace Routes;
+namespace Src\Routes;
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
@@ -9,10 +9,8 @@ use Access\Controller\ApiController;
 
 class Router
 {
-    public static function createApp()
+    public static function routerApp(\Slim\App $app)
     {
-        $app = AppFactory::create();
-
         $app->get('/', ApiController::class . ':index');
         $app->get('/user/{id}', ApiController::class . ':show');
         $app->get('/search', ApiController::class . ':search');
