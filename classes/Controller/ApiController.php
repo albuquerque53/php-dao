@@ -22,7 +22,7 @@ class ApiController
     
         echo json_encode($users);
 
-        return $reponse;
+        return $response;
     }
 
     public function show(Request $request, Response $response, array $args)
