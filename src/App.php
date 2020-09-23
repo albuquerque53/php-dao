@@ -18,6 +18,8 @@ class App extends \Slim\App
 
     public function implementRoutes(Router $router)
     {
-        $router::routerApp($this->app);
+        $routedApp = $router::routerApp($this->app);
+
+        return $routedApp;
     }
 }
