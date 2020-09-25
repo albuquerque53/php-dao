@@ -26,7 +26,11 @@ INSERT INTO users(login, password) VALUES('root', 'secret-pass');  # Optional
 
 3. Install the dependencies: ```composer install```
 
-3. In the [Database](https://github.com/albuquerque53/php-dao/blob/master/classes/DAO/DatabaseConnection.php) class set **your** localhost configs
+4. Create the .env: ```cp .env-example .env```
+
+5. In '.env' set your environment confs
+
+6. To start the app run: ```php -S localhost:2001 -t public/```
 
 ## The API Table
 
