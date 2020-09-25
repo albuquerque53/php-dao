@@ -5,21 +5,27 @@ namespace Access\DAO;
 use Access\DAO\Support\Parameters;
 use Access\DAO\DatabaseConnection;
 
+/*
+ * To run this you'll need a .env.php file
+ * 
+ * If you don't have, run:
+ *      cp .env-example.php .env.php
+ *
+ * And set the env vars to you local config.
+ */
+require_once __DIR__ . '/../../.env.php';
+
 class Database extends DatabaseConnection 
 {
     public function __construct()
     {
         parent::__construct(
-            // DATABASE
-            'mysql',
-            // HOST
-            '127.0.0.1',
-            // SCHEMA NAME
-            'daodb',
-            // DB USER
-            'root',
-            // DB PASSWORD
-            'root');
+            getenv('DATABASE'),
+            getenv('HOST'),
+            getenv('SCHEMA_NAME'),
+            getenv('DB_LOGIN'),
+            getenv('DB_PASSWORD')
+        );
     }
 
     public function query($rawQuery, $params = array()): \PDOStatement
